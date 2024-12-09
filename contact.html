@@ -1,0 +1,652 @@
+<html><head><base href="https://example.com/contact"><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Vanguard Public School & College</title>
+<style>
+:root {
+  --primary: #2c3e50;
+  --secondary: #3498db;
+  --accent1: #e74c3c;
+  --accent2: #2ecc71;
+  --accent3: #f1c40f;
+  --light: #ecf0f1;
+  --dark: #34495e;
+  --gradient1: linear-gradient(45deg, #e74c3c, #f1c40f);
+  --gradient2: linear-gradient(45deg, #2ecc71, #3498db);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  color: #333;
+  background: #f5f6fa;
+}
+
+.header {
+  background: linear-gradient(to right, #1a2a3a, #2c4a6a);
+  padding: 1.2rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  background: linear-gradient(45deg, #f1c40f, #e74c3c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-2px);
+}
+
+.contact-hero {
+  height: 40vh;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%232c3e50;stop-opacity:1" /><stop offset="100%" style="stop-color:%233498db;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(%23grad1)"/></svg>');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  margin-top: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(52, 152, 219, 0.3), rgba(46, 204, 113, 0.3));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  animation: fadeInDown 1s ease-out;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  animation: fadeInUp 1s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: -50px auto 50px;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 3;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.contact-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.contact-form {
+  background: white;
+  padding: 3rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  margin-top: 3rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+  font-weight: 500;
+}
+
+.form-input, .form-textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #e1e1e1;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus, .form-textarea:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.submit-btn {
+  background: var(--gradient1);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+.map-container {
+  margin-top: 3rem;
+  border-radius: 15px;
+  overflow: hidden;
+  height: 400px;
+  position: relative;
+}
+
+.map-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient2);
+  opacity: 0.1;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-info-icon {
+  font-size: 2.5rem;
+  color: var(--accent1);
+  margin-bottom: 1rem;
+}
+
+.contact-info-title {
+  font-size: 1.5rem;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+
+.contact-info-text {
+  color: #666;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background: var(--gradient1);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.footer {
+  background: linear-gradient(to right, #1a2a3a, #2c4a6a);
+  color: #fff;
+  padding: 4rem 0 1rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.footer-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent3);
+  position: relative;
+}
+
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 50px;
+  height: 3px;
+  background: var(--gradient1);
+  border-radius: 2px;
+}
+
+.footer-logo {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  background: var(--gradient1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.footer-links, .footer-contact {
+  list-style: none;
+}
+
+.footer-links li, .footer-contact li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent3);
+}
+
+.footer-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.footer-form input {
+  flex: 1;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.footer-form input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-form button {
+  padding: 0.8rem 1.5rem;
+  background: var(--gradient1);
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.footer-form button:hover {
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-social .social-link {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.footer-social .social-link:hover {
+  background: var(--gradient1);
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+  
+  .contact-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .contact-card {
+    text-align: center;
+  }
+  
+  .contact-form {
+    padding: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-social {
+    justify-content: center;
+  }
+  
+  .footer-form {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <nav class="nav-container">
+    <a href="/" class="logo">VPSC</a>
+    <div class="nav-menu">
+      <a href="/about" class="nav-link">About</a>
+      <a href="/academics" class="nav-link">Academics</a>
+      <a href="/campuses" class="nav-link">Campuses</a>
+      <a href="/contact" class="nav-link">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<section class="contact-hero">
+  <div class="hero-content">
+    <h1>Contact Us</h1>
+    <p>We're here to help and answer any questions you might have</p>
+  </div>
+</section>
+
+<main class="contact-container">
+  <div class="contact-grid">
+    <div class="contact-card" style="animation-delay: 0.2s;">
+      <div class="contact-info-icon">📞</div>
+      <h3 class="contact-info-title">Phone</h3>
+      <p class="contact-info-text">Main: 021-35382194</p>
+      <p class="contact-info-text">Admissions: 021-35382195</p>
+    </div>
+    
+    <div class="contact-card" style="animation-delay: 0.4s;">
+      <div class="contact-info-icon">✉️</div>
+      <h3 class="contact-info-title">Email</h3>
+      <p class="contact-info-text">info@vpsc.ac.pk</p>
+      <p class="contact-info-text">admissions@vpsc.ac.pk</p>
+    </div>
+    
+    <div class="contact-card" style="animation-delay: 0.6s;">
+      <div class="contact-info-icon">📍</div>
+      <h3 class="contact-info-title">Location</h3>
+      <p class="contact-info-text">Plot No 1010, Chandni Chowk</p>
+      <p class="contact-info-text">Azam Town, Near Phase - I D.H.A</p>
+      <p class="contact-info-text">Karachi, Pakistan</p>
+    </div>
+  </div>
+  
+  <form class="contact-form">
+    <h2 style="margin-bottom: 2rem; color: var(--dark);">Send us a Message</h2>
+    
+    <div class="form-group">
+      <label class="form-label" for="name">Full Name</label>
+      <input type="text" id="name" class="form-input" required placeholder="Enter your full name">
+    </div>
+    
+    <div class="form-group">
+      <label class="form-label" for="email">Email Address</label>
+      <input type="email" id="email" class="form-input" required placeholder="Enter your email address">
+    </div>
+    
+    <div class="form-group">
+      <label class="form-label" for="phone">Phone Number</label>
+      <input type="tel" id="phone" class="form-input" placeholder="Enter your phone number">
+    </div>
+    
+    <div class="form-group">
+      <label class="form-label" for="subject">Subject</label>
+      <input type="text" id="subject" class="form-input" required placeholder="Enter message subject">
+    </div>
+    
+    <div class="form-group">
+      <label class="form-label" for="message">Message</label>
+      <textarea id="message" class="form-textarea" rows="5" required placeholder="Enter your message"></textarea>
+    </div>
+    
+    <button type="submit" class="submit-btn">Send Message</button>
+  </form>
+  
+  <div class="map-container">
+    <div class="map-overlay"></div>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.440042090591!2d67.0764!3d24.8815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDUyJzU0LjAiTiA2N8KwMDQnMzUuMCJF!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s" 
+      width="100%" 
+      height="100%" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy">
+    </iframe>
+  </div>
+  
+  <div style="text-align: center; margin-top: 3rem;">
+    <h3 style="color: var(--dark); margin-bottom: 1rem;">Connect With Us</h3>
+    <div class="social-links">
+      <a href="https://facebook.com" class="social-link">📘</a>
+      <a href="https://twitter.com" class="social-link">🐦</a>
+      <a href="https://instagram.com" class="social-link">📸</a>
+      <a href="https://linkedin.com" class="social-link">💼</a>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <h3>About VPSC</h3>
+        <p>Vanguard Public School & College is committed to excellence in education, fostering growth and development of future leaders.</p>
+        <div class="footer-logo">VPSC</div>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/academics">Academics</a></li>
+          <li><a href="/admissions">Admissions</a></li>
+          <li><a href="/facilities">Facilities</a></li>
+          <li><a href="/careers">Careers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <ul class="footer-contact">
+          <li>📍 Plot No 1010, Chandni Chowk</li>
+          <li>📞 021-35382194</li>
+          <li>✉️ info@vpsc.ac.pk</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Newsletter</h3>
+        <p>Subscribe to our newsletter for updates</p>
+        <form class="footer-form">
+          <input type="email" placeholder="Enter your email">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2024 Vanguard Public School & College. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="https://facebook.com" class="social-link">📘</a>
+        <a href="https://twitter.com" class="social-link">🐦</a>
+        <a href="https://instagram.com" class="social-link">📸</a>
+        <a href="https://linkedin.com" class="social-link">💼</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Form submission handling
+  const form = document.querySelector('.contact-form');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Collect form data
+    const formData = {
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      subject: document.getElementById('subject').value,
+      message: document.getElementById('message').value
+    };
+    
+    // Simulate form submission
+    alert('Thank you for your message! We will get back to you soon.');
+    form.reset();
+  });
+
+  // Animate elements on scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+
+  // Observe all contact cards
+  document.querySelectorAll('.contact-card').forEach(card => {
+    observer.observe(card);
+  });
+
+  // Form input animation
+  const formInputs = document.querySelectorAll('.form-input, .form-textarea');
+  formInputs.forEach(input => {
+    input.addEventListener('focus', function() {
+      this.parentElement.classList.add('focused');
+    });
+    
+    input.addEventListener('blur', function() {
+      if (!this.value) {
+        this.parentElement.classList.remove('focused');
+      }
+    });
+  });
+
+  // Footer form submission handling
+  document.querySelector('.footer-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = this.querySelector('input').value;
+    if(email) {
+      alert('Thank you for subscribing to our newsletter!');
+      this.reset();
+    }
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,537 @@
+<html><head><base href="https://example.com/about"><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About - Vanguard Public School & College</title>
+<style>
+:root {
+  --primary: #003776;  /* FPS blue */
+  --secondary: #e31837; /* FPS red */
+  --accent1: #ffd700;  /* Gold */
+  --accent2: #004a99;  /* Darker blue */
+  --light: #ffffff;
+  --dark: #1a1a1a;
+  --gradient1: linear-gradient(45deg, #003776, #004a99);
+  --gradient2: linear-gradient(45deg, #e31837, #003776);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  color: #333;
+  background: #f5f6fa;
+}
+
+.header {
+  background: var(--primary);
+  padding: 1.5rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 2.2rem;
+  color: var(--light);
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: var(--light);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-2px);
+}
+
+.hero-section {
+  margin-top: 80px;
+  padding: 6rem 0;
+  background: var(--gradient1);
+  color: var(--light);
+  text-align: center;
+  animation: gradientFlow 10s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--light);
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: var(--accent1);
+  opacity: 0.9;
+  animation: fadeInUp 1s ease-out 0.3s;
+  animation-fill-mode: both;
+}
+
+.content-section {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.vision-mission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.vision-mission-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-top: 4px solid var(--secondary);
+  transition: transform 0.3s ease;
+  animation: slideUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.vision-mission-card:hover {
+  transform: translateY(-10px);
+}
+
+.vision-mission-card h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+}
+
+.history-timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline-item {
+  display: flex;
+  margin: 2rem 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-year {
+  flex: 0 0 120px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.timeline-content {
+  flex: 1;
+  padding: 0 2rem;
+  border-left: 3px solid var(--secondary);
+  position: relative;
+}
+
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  left: -9px;
+  top: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--secondary);
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.achievement-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+  border-bottom: 4px solid var(--primary);
+  animation: fadeIn 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.achievement-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--secondary);
+  margin: 1rem 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 3rem 0;
+  color: var(--primary);
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: var(--gradient1);
+  border-radius: 2px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.value-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.value-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--primary);
+}
+
+.value-card h3 {
+  color: var(--primary);
+  margin: 1rem 0;
+}
+
+.footer {
+  background: var(--dark);
+  color: white;
+  padding: 3rem 0;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <nav class="nav-container">
+    <a href="/" class="logo">VPSC</a>
+    <div class="nav-menu">
+      <a href="/about" class="nav-link">About</a>
+      <a href="/academics" class="nav-link">Academics</a>
+      <a href="/campuses" class="nav-link">Campuses</a>
+      <a href="/contact" class="nav-link">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">Leading the Future of Education</h1>
+    <p class="hero-subtitle">Excellence, Innovation, Character Building</p>
+  </div>
+</section>
+
+<section class="content-section">
+  <h2 class="section-title">Our Vision & Mission</h2>
+  <div class="vision-mission-grid">
+    <div class="vision-mission-card">
+      <h3>Vision</h3>
+      <p>To develop enlightened and competent citizens who contribute positively to the development of a progressive society through quality education.</p>
+    </div>
+    <div class="vision-mission-card">
+      <h3>Mission</h3>
+      <p>To provide a dynamic learning environment that emphasizes academic excellence, character building, and the development of leadership qualities to prepare students for the challenges of tomorrow.</p>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <h2 class="section-title">Our History</h2>
+  <div class="history-timeline">
+    <div class="timeline-item">
+      <div class="timeline-year">1995</div>
+      <div class="timeline-content">
+        <h3>Foundation</h3>
+        <p>Vanguard Public School & College was established with a vision to provide quality education to the youth of Karachi.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2000</div>
+      <div class="timeline-content">
+        <h3>First Expansion</h3>
+        <p>Opened our second campus to accommodate growing student population and introduced O-Level program.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2010</div>
+      <div class="timeline-content">
+        <h3>Academic Excellence</h3>
+        <p>Achieved recognition as one of the top-performing schools in Karachi with outstanding O/A Level results.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2020</div>
+      <div class="timeline-content">
+        <h3>Modern Innovation</h3>
+        <p>Introduced state-of-the-art STEM laboratories and digital learning platforms.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <h2 class="section-title">Our Achievements</h2>
+  <div class="achievements-grid">
+    <div class="achievement-card">
+      <h3>Academic Excellence</h3>
+      <div class="stat-number">98%</div>
+      <p>Success Rate in Board Examinations</p>
+    </div>
+    <div class="achievement-card">
+      <h3>Student Body</h3>
+      <div class="stat-number">15000+</div>
+      <p>Current Students</p>
+    </div>
+    <div class="achievement-card">
+      <h3>Alumni Network</h3>
+      <div class="stat-number">25000+</div>
+      <p>Successful Graduates</p>
+    </div>
+    <div class="achievement-card">
+      <h3>Global Recognition</h3>
+      <div class="stat-number">50+</div>
+      <p>International awards and accolades</p>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <h2 class="section-title">Our Core Values</h2>
+  <div class="values-grid">
+    <div class="value-card">
+      <h3>Academic Excellence</h3>
+      <p>Pursuing highest standards of educational achievement</p>
+    </div>
+    <div class="value-card">
+      <h3>Character Building</h3>
+      <p>Developing strong moral and ethical values</p>
+    </div>
+    <div class="value-card">
+      <h3>Leadership</h3>
+      <p>Fostering leadership qualities and initiative</p>
+    </div>
+    <div class="value-card">
+      <h3>Innovation</h3>
+      <p>Embracing modern educational practices</p>
+    </div>
+    <div class="value-card">
+      <h3>Social Responsibility</h3>
+      <p>Contributing positively to society</p>
+    </div>
+    <div class="value-card">
+      <h3>Global Perspective</h3>
+      <p>Preparing students for international challenges</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2024 Vanguard Public School & College. All rights reserved.</p>
+    <p>Committed to Excellence in Education</p>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Animate timeline items on scroll
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  timelineItems.forEach(item => {
+    observer.observe(item);
+  });
+
+  // Animate cards on scroll
+  const cards = document.querySelectorAll('.vision-mission-card, .achievement-card, .value-card');
+  const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  cards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'all 0.6s ease-out';
+    cardObserver.observe(card);
+  });
+
+  // Animate numbers in achievement cards
+  const numberElements = document.querySelectorAll('.stat-number');
+  const numberObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const element = entry.target;
+        const finalNumber = parseInt(element.innerText);
+        animateNumber(element, 0, finalNumber, 2000);
+      }
+    });
+  }, {
+    threshold: 0.5
+  });
+
+  numberElements.forEach(element => {
+    numberObserver.observe(element);
+  });
+
+  function animateNumber(element, start, end, duration) {
+    let current = start;
+    const increment = (end - start) / (duration / 16);
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= end) {
+        current = end;
+        clearInterval(timer);
+      }
+      element.textContent = Math.round(current);
+    }, 16);
+  }
+});
+</script>
+
+</body>
+</html>

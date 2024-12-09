@@ -1,0 +1,470 @@
+<html><head><base href="https://example.com/login"><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Login - Vanguard Public School & College</title>
+<style>
+:root {
+  --primary: #2c3e50;
+  --secondary: #3498db;
+  --accent1: #e74c3c;
+  --accent2: #2ecc71;
+  --accent3: #f1c40f;
+  --light: #ecf0f1;
+  --dark: #34495e;
+  --gradient1: linear-gradient(45deg, #3498db, #2ecc71);
+  --gradient2: linear-gradient(45deg, #e74c3c, #f1c40f);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a2a3a 0%, #2c4a6a 100%);
+  padding: 20px;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  animation: slideIn 0.6s ease-out;
+}
+
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--gradient1);
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.login-header h1 {
+  font-size: 2em;
+  color: var(--dark);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.login-header p {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  background: var(--gradient1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  color: white;
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--dark);
+  font-weight: 500;
+  font-size: 0.9em;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e1e1e1;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.student-id-prefix {
+  position: absolute;
+  left: 15px;
+  top: 42px;
+  color: #666;
+  font-weight: 500;
+}
+
+.form-input.with-prefix {
+  padding-left: 65px; /* Make room for the VPS- prefix */
+}
+
+.form-input:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  outline: none;
+}
+
+.form-input::placeholder {
+  color: #aaa;
+}
+
+.input-icon {
+  position: absolute;
+  right: 15px;
+  top: 40px;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.forgot-password {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.forgot-password a {
+  color: var(--secondary);
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+  color: var(--accent1);
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background: var(--gradient1);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.login-btn:active {
+  transform: translateY(0);
+}
+
+.divider {
+  text-align: center;
+  margin: 20px 0;
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 45%;
+  height: 1px;
+  background: #e1e1e1;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.social-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #e1e1e1;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-color: var(--secondary);
+}
+
+.register-link {
+  text-align: center;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.register-link a {
+  color: var(--secondary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register-link a:hover {
+  color: var(--accent1);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.error-message {
+  color: var(--accent1);
+  font-size: 0.85em;
+  margin-top: 5px;
+  display: none;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.remember-me input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.remember-me label {
+  color: #666;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+.loading {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid var(--secondary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 30px 20px;
+  }
+  
+  .login-header h1 {
+    font-size: 1.8em;
+  }
+  
+  .social-btn {
+    width: 45px;
+    height: 45px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="login-container">
+    <div class="login-header">
+        <div class="logo">VPSC</div>
+        <h1>Student Portal</h1>
+        <p>Please enter your student credentials</p>
+    </div>
+
+    <form id="loginForm" onsubmit="return handleSubmit(event)">
+        <div class="form-group">
+            <label for="studentId">Student ID</label>
+            <span class="student-id-prefix">VPS-</span>
+            <input type="text" id="studentId" class="form-input with-prefix" placeholder="Enter your Student ID" required pattern="[0-9]{6}" maxlength="6">
+            <span class="error-message" id="studentIdError"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-input" placeholder="Enter your password" required>
+            <span class="input-icon" onclick="togglePassword()">👁️</span>
+            <span class="error-message" id="passwordError"></span>
+        </div>
+
+        <div class="remember-me">
+            <input type="checkbox" id="remember">
+            <label for="remember">Remember me</label>
+        </div>
+
+        <div class="forgot-password">
+            <a href="https://example.com/forgot-credentials">Forgot Credentials?</a>
+        </div>
+
+        <button type="submit" class="login-btn">Login to Portal</button>
+
+        <p class="register-link">
+            Having trouble? <a href="https://example.com/student-support">Contact Support</a>
+        </p>
+    </form>
+
+    <div class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+</div>
+
+<script>
+let passwordVisible = false;
+
+function togglePassword() {
+    const passwordInput = document.getElementById('password');
+    passwordVisible = !passwordVisible;
+    passwordInput.type = passwordVisible ? 'text' : 'password';
+    document.querySelector('.input-icon').textContent = passwordVisible ? '🔒' : '👁️';
+}
+
+function showLoading() {
+    document.querySelector('.loading').style.display = 'flex';
+}
+
+function hideLoading() {
+    document.querySelector('.loading').style.display = 'none';
+}
+
+function showError(elementId, message) {
+    const errorElement = document.getElementById(elementId);
+    errorElement.textContent = message;
+    errorElement.style.display = 'block';
+}
+
+function clearErrors() {
+    document.querySelectorAll('.error-message').forEach(error => {
+        error.style.display = 'none';
+    });
+}
+
+function validateStudentId(studentId) {
+    return /^[0-9]{6}$/.test(studentId);
+}
+
+function handleSubmit(event) {
+    event.preventDefault();
+    clearErrors();
+
+    const studentId = document.getElementById('studentId').value;
+    const password = document.getElementById('password').value;
+    const remember = document.getElementById('remember').checked;
+
+    // Validate Student ID
+    if (!validateStudentId(studentId)) {
+        showError('studentIdError', 'Please enter a valid 6-digit Student ID');
+        return false;
+    }
+
+    // Validate password
+    if (password.length < 6) {
+        showError('passwordError', 'Password must be at least 6 characters long');
+        return false;
+    }
+
+    // Show loading animation
+    showLoading();
+
+    // Simulate login - For demo, let's use a dummy successful login
+    setTimeout(() => {
+        hideLoading();
+        // Using dummy credentials for demonstration
+        if (studentId === '123456' && password === 'student123') {
+            window.location.href = 'https://example.com/student-portal';
+        } else {
+            showError('studentIdError', 'Invalid credentials. Try Student ID: 123456, Password: student123');
+        }
+    }, 1500);
+
+    return false;
+}
+
+// Add form input animations
+document.querySelectorAll('.form-input').forEach(input => {
+    input.addEventListener('focus', function() {
+        this.parentElement.classList.add('focused');
+    });
+    
+    input.addEventListener('blur', function() {
+        if (!this.value) {
+            this.parentElement.classList.remove('focused');
+        }
+    });
+});
+
+// Auto-format student ID input
+document.getElementById('studentId').addEventListener('input', function(e) {
+    this.value = this.value.replace(/[^0-9]/g, '').slice(0, 6);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,379 @@
+<html><head><base href="https://example.com/academics">
+<title>Academics - Modern Education Experience</title>  
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --primary: #1a4789;
+  --secondary: #d4af37;
+  --dark: #333;
+  --light: #fff;
+  --accent: #e74c3c;
+  --gradient: linear-gradient(135deg, var(--primary), #2980b9);
+}
+
+header {
+  background: var(--gradient);
+  padding: 1.5rem 0;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.logo {
+  color: var(--light);
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+nav ul {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+nav a {
+  color: var(--light);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+}
+
+nav a:hover {
+  color: var(--secondary);
+  background: rgba(255,255,255,0.1);
+}
+
+.hero {
+  padding-top: 120px;
+  background: linear-gradient(rgba(26,71,137,0.9), rgba(26,71,137,0.9)), 
+              url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') center/cover;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.2));
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  animation: gradientText 3s infinite;
+  background: linear-gradient(45deg, var(--light), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.hero p {
+  font-size: 1.4rem;
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeInUp 1s ease 0.3s backwards;
+  line-height: 1.6;
+}
+
+.academics-content {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.section {
+  margin-bottom: 6rem;
+  animation: fadeIn 1s ease;
+  position: relative;
+  padding: 2rem;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.section h2 {
+  color: var(--primary);
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  text-align: center;
+}
+
+.section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: var(--secondary);
+  border-radius: 2px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.card {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 15px;
+  transition: all 0.3s;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  border-color: var(--secondary);
+}
+
+.card h3 {
+  color: var(--primary);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.card h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--secondary);
+  border-radius: 2px;
+}
+
+.card p {
+  color: var(--dark);
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+footer {
+  background: var(--gradient);
+  color: var(--light);
+  padding: 4rem 0 2rem;
+  position: relative;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  padding: 0 2rem;
+}
+
+.footer-section h4 {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  color: var(--secondary);
+}
+
+.footer-section p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-section ul li a {
+  color: var(--light);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: var(--secondary);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+@keyframes gradientText {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+</style>
+</head>
+<body>
+  <header>
+    <div class="nav-wrapper">
+      <div class="logo">VFPS Education</div>
+      <nav>
+        <ul>
+          <li><a href="https://example.com/">Home</a></li>
+          <li><a href="https://example.com/about">About</a></li>
+          <li><a href="https://example.com/academics">Academics</a></li>
+          <li><a href="https://example.com/admissions">Admissions</a></li>
+          <li><a href="https://example.com/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h1>Academic Excellence</h1>
+      <p>Discover our comprehensive academic programs designed to nurture young minds and create future leaders</p>
+    </div>
+  </div>
+
+  <main class="academics-content">
+    <section class="section">
+      <h2>Our Academic Programs</h2>
+      <p>We offer a comprehensive curriculum that focuses on developing critical thinking, creativity, and practical skills.</p>
+      
+      <div class="grid">
+        <div class="card">
+          <h3>Primary Education</h3>
+          <p>Foundation stage (Nursery to KG) and Primary (Grade 1-5) following international curriculum standards.</p>
+        </div>
+        <div class="card">
+          <h3>Middle School</h3>
+          <p>Grades 6-8 with focus on core subjects and character development.</p>
+        </div>
+        <div class="card">
+          <h3>Secondary Education</h3>
+          <p>O Levels preparation with Cambridge International Examination system.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Academic Features</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Small Class Size</h3>
+          <p>Individual attention and personalized learning experience for each student.</p>
+        </div>
+        <div class="card">
+          <h3>Qualified Faculty</h3>
+          <p>Experienced and dedicated teachers committed to academic excellence.</p>
+        </div>
+        <div class="card">
+          <h3>Modern Facilities</h3>
+          <p>Well-equipped laboratories, library, and smart classrooms.</p>
+        </div>
+        <div class="card">
+          <h3>Extra-Curricular</h3>
+          <p>Balanced focus on sports, arts, and character development.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Curriculum Overview</h2>
+      <p>Our curriculum is designed to meet international standards while maintaining cultural values:</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Core Subjects</h3>
+          <p>Mathematics, Sciences, Languages, Social Studies</p>
+        </div>
+        <div class="card">
+          <h3>Language Skills</h3>
+          <p>English, Urdu, and Arabic language programs</p>
+        </div>
+        <div class="card">
+          <h3>Technology Integration</h3>
+          <p>Computer Science, Digital Skills, and STEM activities</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>About VFPS</h4>
+        <p>Fostering excellence in education since 1995. We are committed to providing quality education that empowers students for future success.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="https://example.com/admissions">Admissions</a></li>
+          <li><a href="https://example.com/academics">Academic Programs</a></li>
+          <li><a href="https://example.com/facilities">Facilities</a></li>
+          <li><a href="https://example.com/events">Events</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact Us</h4>
+        <p>123 Education Street<br>City, Country 12345<br>Phone: (123) 456-7890<br>Email: info@VFPSeducation.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 VFPS Education. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
