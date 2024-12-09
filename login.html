@@ -1,4 +1,4 @@
-<html><head><base href="https://example.com/login"><meta charset="UTF-8">
+<html><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Student Login - Vanguard Public School & College</title>
 <style>
@@ -360,14 +360,11 @@ body {
             <label for="remember">Remember me</label>
         </div>
 
-        <div class="forgot-password">
-            <a href="https://example.com/forgot-credentials">Forgot Credentials?</a>
-        </div>
 
         <button type="submit" class="login-btn">Login to Portal</button>
 
         <p class="register-link">
-            Having trouble? <a href="https://example.com/student-support">Contact Support</a>
+            Having trouble? <a href="contact.html">Contact Support</a>
         </p>
     </form>
 
@@ -437,11 +434,7 @@ function handleSubmit(event) {
     setTimeout(() => {
         hideLoading();
         // Using dummy credentials for demonstration
-        if (studentId === '123456' && password === 'student123') {
-            window.location.href = 'https://example.com/student-portal';
-        } else {
-            showError('studentIdError', 'Invalid credentials. Try Student ID: 123456, Password: student123');
-        }
+        showError('studentIdError', 'Invalid credentials.');
     }, 1500);
 
     return false;
